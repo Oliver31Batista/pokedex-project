@@ -1,13 +1,13 @@
 import './App.css';
 import Navbar from './components/Navbar.jsx'
+import Searchbar from './components/Searchbar';
 
 function App() {
   return (
     <div>
       <Navbar />
       <div className="App">
-        <h1>Hello world</h1>
-        <h2>lets began a new history</h2>
+        <Searchbar />
       </div>
     </div>
   );
