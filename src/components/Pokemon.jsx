@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/Pokemon.css'
 
 const Pokemon = ({pokemon}) => {
     return (
@@ -8,8 +9,8 @@ const Pokemon = ({pokemon}) => {
                     src={pokemon.sprites.front_default} 
                     alt={pokemon.name} />
             </div>
-            <div>
-                <div>
+            <div className="card-body">
+                <div className="card-top">
                     <h3>{pokemon.name}</h3>
                     <div>#{pokemon.id}</div>
                 </div>
