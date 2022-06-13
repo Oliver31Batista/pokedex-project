@@ -28,3 +28,19 @@
 .card-top h3{
     text-transform: capitalize;
 }
+
+.card-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pokemon-type {
+    display: flex;
+}
+
+.pokemon-type-text {
+    margin-right: 10px;
+    text-transform: capitalize;
+}

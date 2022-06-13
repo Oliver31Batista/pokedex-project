@@ -14,13 +14,13 @@ const Pokemon = ({pokemon}) => {
                     <h3>{pokemon.name}</h3>
                     <div>#{pokemon.id}</div>
                 </div>
-                <div>
-                    <div>
+                <div className="card-bottom">
+                    <div className="pokemon-type">
                     {pokemon.types.map((type,idx) => {
-                        return  <div key={idx}>{type.name}</div>;
+                        return  <div key={idx} className="pokemon-type-text">{type.type.name}</div>;
                     })}
                     </div>
-                    <div>❤</div>
+                    <div className="favorite-pokemons">&#10084;&#65039;</div>
                 </div>
             </div>
         </div>
