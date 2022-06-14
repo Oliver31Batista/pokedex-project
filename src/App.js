@@ -9,13 +9,13 @@ const { useState, useEffect } = React;
 
 export default function App() {
   const [pokemon, setPokemon] = useState([]);
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(2 );
   const [total, setTotal] = useState();
   const [loading, setLoading] = useState(true);
 
   const fetchPokemons = async () => {
     try {
-      const data = await getPokemons();
+      const data = await getPokemons(31, 31 * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url) 
       })
@@ -27,7 +27,7 @@ export default function App() {
 
   useEffect(() => {
     fetchPokemons();
-  }, []);
+  }, [page]);
 
   return (
     <div>
@@ -38,7 +38,9 @@ export default function App() {
             <div>Cargando pokemones...</div>
           :
             <ResultsPokedex
-              pokemons = {pokemon} />
+              pokemons = {pokemon}
+              page = {page}
+              setPage = {setPage} />
           }
         </div>
       </div>
