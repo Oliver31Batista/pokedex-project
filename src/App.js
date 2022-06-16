@@ -13,7 +13,7 @@ export default function App() {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
-
+console.log('git commit -m"cahnged my old git account to the new one"')
   const fetchPokemons = async () => {
     try {
       setLoading(true);
