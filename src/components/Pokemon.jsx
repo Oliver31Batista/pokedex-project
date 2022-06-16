@@ -2,6 +2,10 @@ import React from "react";
 import '../css/Pokemon.css'
 
 const Pokemon = ({pokemon}) => {
+
+    const redHeart = '&#10084;&#65039';
+    const blackHeart = '🖤';
+
     return (
         <div className="pokemon-card">
             <div className="pokemon-img">
@@ -20,7 +24,9 @@ const Pokemon = ({pokemon}) => {
                         return  <div key={idx} className="pokemon-type-text">{type.type.name}</div>;
                     })}
                     </div>
-                    <div className="favorite-pokemons">&#10084;&#65039;</div>
+                    <button>
+                    <div className="favorite-pokemons">{blackHeart}</div>
+                    </button>
                 </div>
             </div>
         </div>

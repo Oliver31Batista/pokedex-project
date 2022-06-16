@@ -10,18 +10,21 @@ const { useState, useEffect } = React;
 export default function App() {
   const [pokemon, setPokemon] = useState([]);
   const [page, setPage] = useState(2 );
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [favorites, setFavorites] = useState([]);
 
   const fetchPokemons = async () => {
     try {
-      const data = await getPokemons(31, 31 * page);
+      setLoading(true);
+      const data = await getPokemons(10, 10 * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url) 
       })
       const results = await Promise.all(promises)
       setPokemon(results);
       setLoading(false);
+      setTotal(Math.ceil(data.count / 10));
     } catch (err) {}
   }
 
@@ -34,14 +37,12 @@ export default function App() {
       <Navbar />
       <div className="App">
         <Searchbar />
-          { loading ? 
-            <div>Cargando pokemones...</div>
-          :
             <ResultsPokedex
+              loading = {loading}
               pokemons = {pokemon}
               page = {page}
-              setPage = {setPage} />
-          }
+              setPage = {setPage}
+              total = {total} />
         </div>
       </div>
     );
