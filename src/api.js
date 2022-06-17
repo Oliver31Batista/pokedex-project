@@ -8,7 +8,7 @@ export const searchPokemons = async (pokemon) => {
 
     }
 };
-console.log('toy jalto')
+console.log('double account problem solved')
 export const getPokemons = async (limit=0, offset=0) => {
     try {
         let url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
