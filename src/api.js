@@ -8,7 +8,7 @@ export const searchPokemons = async (pokemon) => {
 
     }
 };
-console.log('...lkl')
+console.log('...l')
 export const getPokemons = async (limit=0, offset=0) => {
     try {
         let url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
