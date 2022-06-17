@@ -4,20 +4,21 @@ import './App.css';
 import Navbar from './components/Navbar.jsx'
 import ResultsPokedex from './components/ResultsPokedex';
 import Searchbar from './components/Searchbar';
+import { FavoriteProvider } from './context/favoritesContext';
 
 const { useState, useEffect } = React;
 
 export default function App() {
   const [pokemon, setPokemon] = useState([]);
-  const [page, setPage] = useState(2 );
+  const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
-console.log('changing my old account')
+
   const fetchPokemons = async () => {
     try {
       setLoading(true);
-      const data = await getPokemons(10, 10 * page);
+      const data = await getPokemons(20, 20 * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url) 
       })
@@ -32,7 +33,24 @@ console.log('changing my old account')
     fetchPokemons();
   }, [page]);
 
+  const updateFavoritePokemons = (name) => {
+    const updated = [...favorites]
+    const isFavorite = favorites.indexOf(name);
+      if(isFavorite >=0) {
+        updated.splice(isFavorite, 1);
+      } else {
+        updated.push(name);
+      }
+      setFavorites(updated);
+  };
+
   return (
+    <FavoriteProvider 
+      value={{
+        favoritePokemons: favorites,
+        updateFavoritePokemons: updateFavoritePokemons
+      }} 
+    >
     <div>
       <Navbar />
       <div className="App">
@@ -44,7 +62,7 @@ console.log('changing my old account')
               setPage = {setPage}
               total = {total} />
         </div>
-      </div>
-    );
-  }
-
+    </div>
+    </ FavoriteProvider>
+  );
+}
