@@ -8,6 +8,8 @@ import { FavoriteProvider } from './context/favoritesContext';
 
 const { useState, useEffect } = React;
 
+const localStorageKey = "favorite_pokemon";
+
 export default function App() {
   const [pokemon, setPokemon] = useState([]);
   const [page, setPage] = useState(0);
@@ -29,6 +31,15 @@ export default function App() {
     } catch (err) {}
   }
 
+  const loadFavoritePokemons = () => {
+    const pokemons = 
+      JSON.parse(window.localStorage.getItem(localStorageKey)) || [];
+    setFavorites(pokemons);
+  }
+
+  useEffect(() => {
+    loadFavoritePokemons();
+  }, [])
   useEffect(() => {
     fetchPokemons();
   }, [page]);
@@ -42,6 +53,7 @@ export default function App() {
         updated.push(name);
       }
       setFavorites(updated);
+      window.localStorage.setItem(localStorageKey, JSON.stringify(updated));
   };
 
   return (
