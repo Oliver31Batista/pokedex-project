@@ -3,18 +3,16 @@ import '../css/Searchbar.css'
 import { useState } from "react";
 import { searchPokemons } from "../api";
 
-const Searchbar = () => {
+const Searchbar = ({onSearch}) => {
     const [search, setSearch] = useState('');
     const [pokemon, setPokemon] = useState('');
 
     const onChange = (event) => {
-        console.log(event.target.value)
         setSearch(event.target.value);
     }
 
-    const onClick = async (event) => {
-        const data = await searchPokemons(search);
-        setPokemon(data);
+    const onClick = async (e) => {
+        onSearch(search);
     }
 
     return (

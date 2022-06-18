@@ -37,6 +37,17 @@ export default function App() {
     setFavorites(pokemons);
   }
 
+  const onSearch = async (pokemon) => {
+    setLoading(true);
+      const result = await searchPokemons(pokemon);
+      if(!result) {
+        return console.log('noexiste')
+      } else {
+        setPokemon([result])
+      }
+    setLoading(false);
+  }
+
   useEffect(() => {
     loadFavoritePokemons();
   }, [])
@@ -66,7 +77,7 @@ export default function App() {
     <div>
       <Navbar />
       <div className="App">
-        <Searchbar />
+        <Searchbar onSearch={onSearch} />
             <ResultsPokedex
               loading = {loading}
               pokemons = {pokemon}
