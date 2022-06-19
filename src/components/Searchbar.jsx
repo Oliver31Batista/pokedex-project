@@ -9,6 +9,8 @@ const Searchbar = ({onSearch}) => {
 
     const onChange = (event) => {
         setSearch(event.target.value);
+        if (event.targue.value.length === 0)
+        onSearch(null);
     }
 
     const onClick = async (e) => {
