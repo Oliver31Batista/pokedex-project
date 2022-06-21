@@ -2,7 +2,7 @@ import React from 'react';
 import { searchPokemons, getPokemons, getPokemonData } from './api';
 import './App.css';
 import Navbar from './components/Navbar.jsx'
-import Pokemon from './components/Pokemon';
+import Pokemon from './components/PokemonCard';
 import ResultsPokedex from './components/ResultsPokedex';
 import Searchbar from './components/Searchbar';
 import { FavoriteProvider } from './context/favoritesContext';
