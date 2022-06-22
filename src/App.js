@@ -6,7 +6,7 @@ import Pokemon from './components/PokemonCard';
 import ResultsPokedex from './components/ResultsPokedex';
 import Searchbar from './components/Searchbar';
 import { FavoriteProvider } from './context/favoritesContext';
-import FlippedCard from './components/FlippedCard';
+
 
 const { useState, useEffect } = React;
 
@@ -107,7 +107,6 @@ export default function App() {
             total = {total} />
         )}
         </div>
-        <FlippedCard />
     </div>
     </ FavoriteProvider>
   );

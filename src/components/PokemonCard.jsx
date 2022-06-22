@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import FavoriteContext from "../context/favoritesContext";
 import "../css/Pokemon.css";
 
@@ -14,8 +14,15 @@ const Pokemon = ({ pokemon }) => {
     updateFavoritePokemons(pokemon.name);
   };
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handlerClick = () => {
+    setIsFlipped(isFlipped ? false : true);
+  };
 
   return (
+    <>
+    <div className={isFlipped ? "card-flipped" : "card-not-flipped"} onClick={handlerClick}>
       <div className="pokemon-card">
       <div className="pokemon-img">
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
@@ -41,6 +48,8 @@ const Pokemon = ({ pokemon }) => {
         </div>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 
