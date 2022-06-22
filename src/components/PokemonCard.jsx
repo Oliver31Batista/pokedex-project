@@ -14,16 +14,16 @@ const Pokemon = ({ pokemon }) => {
     updateFavoritePokemons(pokemon.name);
   };
 
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(true);
 
   const handlerClick = () => {
     setIsFlipped(isFlipped ? false : true);
+    console.log("flip", isFlipped);
   };
 
   return (
     <>
-    <div className={isFlipped ? "card-flipped" : "card-not-flipped"} onClick={handlerClick}>
-      <div className="pokemon-card">
+     <div className="pokemon-card">
       <div className="pokemon-img">
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       </div>
@@ -47,7 +47,6 @@ const Pokemon = ({ pokemon }) => {
           </button>
         </div>
       </div>
-    </div>
     </div>
     </>
   );
