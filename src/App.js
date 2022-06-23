@@ -1,6 +1,7 @@
 import React from 'react';
 import { searchPokemons, getPokemons, getPokemonData } from './api';
 import './App.css';
+import Modals from './components/Modals';
 import Navbar from './components/Navbar.jsx'
 import Pokemon from './components/PokemonCard';
 import ResultsPokedex from './components/ResultsPokedex';
@@ -92,6 +93,7 @@ export default function App() {
         updateFavoritePokemons: updateFavoritePokemons
       }} 
     >
+      <Modals/>
     <div>
       <Navbar />
       <div className="App">
