@@ -1,0 +1,33 @@
+.modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(0, 0, 0, 0.75);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal-container {
+    position: relative;
+    /*en caso de que el modal sea para algo muy pequeño*/
+    min-width:320;
+    max-width:420;
+    min-height:200px;
+    max-height:300px;
+    overflow-y: auto;
+    background-color: yellow;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 0rem;
+}
