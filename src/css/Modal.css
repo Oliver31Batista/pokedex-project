@@ -16,12 +16,13 @@
 }
 
 .modal-container {
+    padding: 1rem;
     position: relative;
     /*en caso de que el modal sea para algo muy pequeño*/
     min-width:320;
     max-width:420;
     min-height:200px;
-    max-height:300px;
+    min-height:600px;
     overflow-y: auto;
     background-color: yellow;
 }
