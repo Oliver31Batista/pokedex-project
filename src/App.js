@@ -93,7 +93,7 @@ export default function App() {
         updateFavoritePokemons: updateFavoritePokemons
       }} 
     >
-      <Modals/>
+
     <div>
       <Navbar />
       <div className="App">

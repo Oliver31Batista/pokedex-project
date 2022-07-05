@@ -10,7 +10,6 @@ const Modals = () => {
     <div>  
         <h2>Modales</h2>
         <button onClick={openModal1}>Modal 1</button>
-        
         <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
             <h3>Modal 1</h3>
             <p>Hola, este es el contenido de mi modal 1</p>
