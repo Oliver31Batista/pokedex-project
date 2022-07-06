@@ -2,6 +2,8 @@ import React from "react";
 import "../css/Searchbar.css";
 import { useState } from "react";
 import { searchPokemons } from "../api";
+import { FaBeer } from "react-icons/fa"
+
 
 const Searchbar = ({ onSearch }) => {
   const [search, setSearch] = useState("");
@@ -43,9 +45,11 @@ const Searchbar = ({ onSearch }) => {
           className="search-bar"
           onChange={onChange}
         />
-        <i className="fa fa-search" onClick={onClick}></i>
+        <i className="fa fa-search" onClick={onClick}><img src={FaBeer} alt="search-icon" /></i>
         <a id="clear-btn" onClick={onClickClear}>Clear</a>
+        
       </form>
+      
     </div>
   );
 };
