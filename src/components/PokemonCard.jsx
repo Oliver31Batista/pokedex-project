@@ -35,13 +35,12 @@ const Pokemon = ({ pokemon }) => {
         <div className="card-top">
           <h3>{pokemon.name}</h3>
           <div>#{pokemon.id}</div>
-          <div onClick={openModalPokemon}><img src={expandArrows} alt="expand arrows" />
+          <div onClick={openModalPokemon}><img src={expandArrows} alt="expand arrows" /></div>
             <Modal isOpen={isOpenModalPokemon} closeModal={closeModalPokemon}>
               <h3>Pokemon</h3>
               <p>Hola, este es el contenido de mi modal pokemon</p>
               <img src="https:placeimg.com/400/410/animals" alt='modalPokemon'/>
             </Modal>
-        </div>
         </div>
         <div className="card-bottom">
           <div className="pokemon-type">

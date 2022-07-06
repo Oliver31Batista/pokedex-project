@@ -1,35 +1,53 @@
 import React from "react";
-import '../css/Searchbar.css'
+import "../css/Searchbar.css";
 import { useState } from "react";
 import { searchPokemons } from "../api";
 
-const Searchbar = ({onSearch}) => {
-    const [search, setSearch] = useState('');
-    const [pokemon, setPokemon] = useState('');
+const Searchbar = ({ onSearch }) => {
+  const [search, setSearch] = useState("");
+  const [pokemon, setPokemon] = useState("");
 
-    const onChange = (event) => {
-        setSearch(event.target.value);
-        if (event.targue.value.length === 0)
-        onSearch(null);
-    }
+  const input = document.getElementsByTagName("input")[0];
+  const clearInput = () => {
+    if(input){
+        input.value = "";
+    }    
+  }
 
-    const onClick = async (e) => {
-        onSearch(search);
-    }
+  const clearBtn = document.getElementById("clear-btn");
 
-    return (
-        <div className = "searchbar-container">
-            <div className="searchbar">
-                <input 
-                    type="text"
-                    placeholder="Search pokemon..."
-                    onChange={onChange} />
-            </div>
-            <div className="searchbar-btn">
-                <button onClick={onClick}>Search</button>
-            </div>
-        </div>
-    );
+  if(clearBtn) {
+    clearBtn.addEventListener("click", clearInput);
+  }
+
+  const onChange = (event) => {
+    setSearch(event.target.value);
+    if (event.targue.value.length === 0) onSearch(null);
+  };
+
+  const onClick = async (e) => {
+    onSearch(search);
+  };
+
+  const onClickClear = async (e) => {
+    onSearch(null)
+  }
+
+  return (
+    <div className="searchbar-container">
+      <div className="searchbar"></div>
+      <form>
+        <input
+          type="search"
+          required
+          className="search-bar"
+          onChange={onChange}
+        />
+        <i className="fa fa-search" onClick={onClick}></i>
+        <a id="clear-btn" onClick={onClickClear}>Clear</a>
+      </form>
+    </div>
+  );
 };
 
 export default Searchbar;
