@@ -2,7 +2,7 @@ import React from "react";
 import "../css/Searchbar.css";
 import { useState } from "react";
 import { searchPokemons } from "../api";
-import { FaBeer } from "react-icons/fa"
+import { FcSearch } from "react-icons/fc"
 
 
 const Searchbar = ({ onSearch }) => {
@@ -45,7 +45,7 @@ const Searchbar = ({ onSearch }) => {
           className="search-bar"
           onChange={onChange}
         />
-        <i className="fa fa-search" onClick={onClick}><img src={FaBeer} alt="search-icon" /></i>
+        <i className="fa fa-search" onClick={onClick}><FcSearch/></i>
         <a id="clear-btn" onClick={onClickClear}>Clear</a>
         
       </form>
