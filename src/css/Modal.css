@@ -1,3 +1,14 @@
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+  
+  :root {
+    --card-height: 65vh;
+    --card-width: calc(var(--card-height) / 1.5);
+  }
+
 .modal {
     position: fixed;
     z-index: 999;
@@ -15,20 +26,124 @@
     display: flex;
 }
 
-.modal-container {
+/* .modal-container {
     padding: 1rem;
     position: relative;
     /*en caso de que el modal sea para algo muy pequeño*/
-    min-width:320;
+    /* min-width:320;
     max-width:420;
     min-height:200px;
     min-height:600px;
     overflow-y: auto;
     background-color: yellow;
-}
+}  */
+
+.modal-card {
+    background: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: 1.5em;
+    color: rgb(88 199 250 / 0%);
+    cursor: pointer;
+    font-family: cursive;
+  }
+  
+  .modal-card :hover {
+    color: rgb(88 199 250 / 100%);
+    transition: color 1s;
+  }
+  .modal-card :hover:before, .modal-card :hover:after {
+    animation: none;
+    opacity: 0;
+  }
+  
+  .modal-card ::before {
+    content: "";
+    width: 104%;
+    height: 102%;
+    border-radius: 8px;
+    background-image: linear-gradient(
+      var(--rotate)
+      , #FF0000, #FFFF00 43%, #00FFFF);
+      position: absolute;
+      z-index: -1;
+      top: -1%;
+      left: -2%;
+      animation: spin 2.5s linear infinite;
+  }
+  
+  .modal-card ::after {
+    position: absolute;
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #FF0000, #FFFF00 43%, #00FFFF);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+  
+  a {
+    color: #212534;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
 
 .modal-close {
     position: absolute;
     top: 1rem;
     right: 0rem;
+}
+
+.poke-name{
+  color: #0a0000;
+}
+
+.poke-id{
+  color: #ffffff;
+}
+
+.img-container {
+    position: relative;
+    width: 180px;
+    margin: 15px auto;
+}
+
+.poke-types div {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px dashed ;
+}
+
+.poke-img {
+    width: 180px;
+    border-radius: 50%;
 }
